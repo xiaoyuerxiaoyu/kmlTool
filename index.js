@@ -445,13 +445,17 @@ function exportKML() {
 
   let fileName = prompt('ファイル名を入力してください:');
 
+  if(fileName == null){
+    return;
+  }
+
   let format = new ol.format.KML(
       {
       'writeStyles': true,
       }
     );
 
-  console.log(outputFeatures);
+  // console.log(outputFeatures);
   
   const kmlXML = format.writeFeatures(outputFeatures, 'EPSG:4326', 'EPSG:3857');
 
