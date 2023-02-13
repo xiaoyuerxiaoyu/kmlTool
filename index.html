@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>KML Tool</title>
+    <script src="https://cdn.jsdelivr.net/npm/ol@v7.2.2/dist/ol.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/elm-pep@1.0.6/dist/elm-pep.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v7.2.2/ol.css">
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script defer src="./index.js"></script>
+    <script src="./aws-sdk.js"></script>
+  </head>
+  <body>
+    <div id="map" class="map">
+    </div>
+    <div id="mapcontrol" class="controlContainer">
+      <ul>
+        <li style="list-style-type: none;">
+          <button class="navButton" onclick="clearAll()" >初期化</button>
+        </li>
+        <li style="list-style-type: none;">
+          <button class="navButton" onclick="loadKML()" >呼出し</button>
+        </li>
+        <li style="list-style-type: none;">
+          <button class="navButton" onclick="exportKML()" >保存</button>
+        </li>
+        <li style="list-style-type: none;">
+          <button class="navButton" onclick="downloadKML()" >ダウンロード</button>
+        </li>
+        <li style="list-style-type: none;">
+          <button class="navButton" onclick="addLine();" ><font color="blue" size="6">→</font></button>
+        </li>
+        <li style="list-style-type: none;">
+          <button class="navButton" onclick="addPoint();" ><font color="blue" size="6">●</font></button>
+        </li>    
+        <li style="list-style-type: none;">
+          <button class="navButton" onclick="undo()" >UNDO</button>
+        </li>
+        <li style="list-style-type: none;">
+          <button class="navButton" onclick="addCircle();" ><font color="blue" size="6">●</font></button>
+        </li>  
+      </ul>
+    </div>
+
+    <!-- This layer has to be after the content, and before any popup -->
+    <div id="obscuring-layer"></div>
+
+    <!-- Here are the popups -->
+    <div id="popup"><p id="fileList"> loading... </p><p>(<a id="hide">x</a>)</p></div>
+
+    <div>
+      <a id="download" download></a>
+    </div>
+    <script type="text/javascript">
+      window.onload = function() {
+          register_popup("map", "hide", "popup", "obscuring-layer");
+          initMap();
+      }
+  </script>
+  </body>
+</html>

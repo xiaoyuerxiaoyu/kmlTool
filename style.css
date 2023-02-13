@@ -1,0 +1,154 @@
+/* 
+ * Always set the map height explicitly to define the size of the div element
+ * that contains the map. 
+ */
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+/* 
+ * Optional: Makes the sample page fill the window. 
+ */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.custom-map-control-button {
+  background-color: #fff;
+  border: 0;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
+  margin: 10px;
+  padding: 0 0.5em;
+  font: 400 18px Roboto, Arial, sans-serif;
+  overflow: hidden;
+  height: 40px;
+  cursor: pointer;
+}
+.custom-map-control-button:hover {
+  background: rgb(235, 235, 235);
+}
+
+.controlContainer {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  /* background-color:blue; */
+  /* transform: translateX(-50%); */
+}
+
+  .controlContainer .navButton {
+    float: left;
+    margin: 2px;
+    background-color: #6699FF;
+    box-shadow: rgb(0 0 0 / 16%) 0 0 4px;
+    border: none;
+    border-radius: 2px;
+    width: 100px;
+    height: 32px;
+    padding: 2px 8px;
+    color: black;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    line-height: 20px;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .controlContainer .navButton:hover {
+    color: deepskyblue;
+  }
+
+  .controlContainer .navSelect {                
+    width: 140px;
+    padding: 5px;
+    font-size: 14px;
+  }
+
+    .controlContainer .navSelect:hover {
+      color: black;
+    }
+
+
+/* 
+ * popup window. 
+ */
+  .popup-link {
+      cursor: pointer;
+      text-decoration: underline;
+      color: black;
+  }
+  
+  .obscuring-layer {
+      background-color: black;
+      opacity: 0;
+      position: fixed;
+      top: -9999px;
+      left: -9999px;
+      min-width: 9999px;
+      min-height: 9999px;
+      margin: 0px;
+      padding: 0px;
+  }
+  
+  .obscuring-layer.visible {
+      opacity: 0.9;
+      -webkit-transition: opacity 0.25s ease-in;
+      -mox-transition: opacity 0.25s ease-in;
+      -o-transition: opacity 0.25s ease-in;
+      
+      /*
+      min-width: 9999px;
+      min-height: 9999px;
+      */
+      top: 0px;
+      left: 0px;
+  }
+  
+  .obscuring-layer.hidden {
+      opacity: 0;
+      -webkit-transition: opacity 0.25s ease-in;
+      -mox-transition: opacity 0.25s ease-in;
+      -o-transition: opacity 0.25s ease-in;
+  }
+  
+  .popup {
+      background-color: #ffdddd;
+      min-width: 960px;
+      max-width: 960px;
+      width: 960px;
+      opacity: 0;
+      border-radius: 30px;
+      border: 3px solid black;
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+      margin: 0px;
+      margin-top: 20px;
+      margin-left: -500px;
+      padding: 20px;
+  }
+  
+  .popup.visible {
+      opacity: 1;
+      -webkit-transition: opacity 0.25s ease-in;
+      -moz-transition: opacity 0.25s ease-in;
+      -o-transition: opacity 0.25s ease-in;
+      top: 20px;
+      left: 50%;
+  }
+  
+  .popup.hidden {
+      /* FIX ME: doesn't work, because the popup moves to its faraway position before the transition. */
+      opacity: 0;
+      -webkit-transition: opacity 0.25s ease-in;
+      -moz-transition: opacity 0.25s ease-in;
+      -o-transition: opacity 0.25s ease-in;
+  }
+  
